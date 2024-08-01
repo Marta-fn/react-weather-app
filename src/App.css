@@ -1,0 +1,18 @@
+body {
+  color: #f8f7f9;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.App .container {
+  background: rgb(18, 37, 116);
+  background: linear-gradient(
+    127deg,
+    rgba(18, 37, 116, 1) 0%,
+    rgba(44, 47, 205, 1) 50%,
+    rgba(33, 59, 163, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
