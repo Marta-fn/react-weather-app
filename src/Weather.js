@@ -24,22 +24,24 @@ export default function Weather() {
         </div>
       </form>
       <h1>Viseu</h1>
-      <ul>
-        <li>Wednesday 07:00</li>
+      <ul className="day-info">
+        <li>Wednesday, 07:00</li>
         <li>Sunny</li>
       </ul>
-      <div className="row mt-3">
-        <div className="col-6">
-          <div className="d-flex">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt="Sunny"
-            />
+      <div className="row mt-3 align-items-center">
+        <div className="col-4">
+          <div className="d-flex current-temp">
             <span className="temperature">22</span>
             <span className="unit">ºC</span>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-4">
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+            alt="Sunny"
+          />
+        </div>
+        <div className="col-4">
           <ul>
             <li>
               <strong>Precipitation:</strong> 0%

@@ -9,6 +9,8 @@
 .Weather h1 {
   font-size: 48px;
   line-height: 1.5;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .Weather ul {
@@ -22,18 +24,20 @@
   line-height: 1.5;
 }
 
-.Weather img {
-  margin-right: 10px;
-  display: inline-block;
-  height: 64px;
+.Weather .day-info {
+  text-align: center;
+}
+
+.Weather .current-temp {
+  justify-content: right;
 }
 
 .Weather .temperature {
   font-weight: bold;
-  font-size: 64px;
-  line-height: 64px;
+  font-size: 32px;
+  line-height: 32px;
 }
 
-.Weather .unit {
-  margin-left: 5px;
+.Weather img {
+  height: 200px;
 }
