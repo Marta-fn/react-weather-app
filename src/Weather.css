@@ -1,6 +1,7 @@
 .Weather {
   padding: 16px;
 }
+
 .Weather .btn-primary {
   background-color: #f8f7f9 !important;
   color: #14267c;
@@ -26,10 +27,6 @@
 
 .Weather .day-info {
   text-align: center;
-}
-
-.Weather .current-temp {
-  justify-content: right;
 }
 
 .Weather .temperature {

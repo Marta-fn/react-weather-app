@@ -1,60 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Weather.css";
+import axios from "axios";
 
 export default function Weather() {
-  return (
-    <div className="Weather">
-      <form>
-        <div className="row">
-          <div className="col-9">
-            <input
-              type="search"
-              placeholder="Enter a city..."
-              autoFocus="on"
-              className="form-control"
-            />
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function handleResponse(response) {
+    console.log(response.data.name);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      realFeal: response.data.main.feels_like,
+      city: response.data.name,
+    });
+  }
+
+  function search() {
+    let ApiUrl =
+      "https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=0dc40d3d7cda209ca40e77430c74cf57&units=metric";
+    axios.get(ApiUrl).then(handleResponse);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <form>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                autoFocus="on"
+                className="form-control"
+              />
+            </div>
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
+            </div>
           </div>
-          <div className="col-3">
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary w-100"
-            />
+        </form>
+        <h1>{weatherData.city}</h1>
+        <ul className="day-info">
+          <li>Wednesday, 07:00</li>
+          <li>Sunny</li>
+        </ul>
+        <div className="row mt-3 align-items-center">
+          <div className="col-4">
+            <div className="d-flex justify-content-end">
+              <span className="temperature">
+                {Math.round(weatherData.temperature)}
+              </span>
+              <span className="unit">ºC</span>
+            </div>
           </div>
-        </div>
-      </form>
-      <h1>Viseu</h1>
-      <ul className="day-info">
-        <li>Wednesday, 07:00</li>
-        <li>Sunny</li>
-      </ul>
-      <div className="row mt-3 align-items-center">
-        <div className="col-4">
-          <div className="d-flex current-temp">
-            <span className="temperature">22</span>
-            <span className="unit">ºC</span>
+          <div className="col-4">
+            <div className="d-flex justify-content-center">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt="Sunny"
+              />
+            </div>
           </div>
-        </div>
-        <div className="col-4">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-            alt="Sunny"
-          />
-        </div>
-        <div className="col-4">
-          <ul>
-            <li>
-              <strong>Precipitation:</strong> 0%
-            </li>
-            <li>
-              <strong>Humidity:</strong> 73%
-            </li>
-            <li>
-              <strong>Wind:</strong> 8Km/h
-            </li>
-          </ul>
+          <div className="col-4">
+            <ul>
+              <li>
+                <strong>Real Feal:</strong> {Math.round(weatherData.realFeal)}ºC
+              </li>
+              <li>
+                <strong>Humidity:</strong> {weatherData.humidity}%
+              </li>
+              <li>
+                <strong>Wind:</strong> {weatherData.wind}Km/h
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
