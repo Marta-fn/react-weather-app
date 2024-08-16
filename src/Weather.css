@@ -28,9 +28,3 @@
 .Weather .day-info {
   text-align: center;
 }
-
-.Weather .temperature {
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 32px;
-}
