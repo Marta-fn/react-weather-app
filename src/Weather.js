@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -16,6 +17,7 @@ export default function Weather() {
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -61,7 +63,9 @@ export default function Weather() {
           <li>
             <FormattedDate date={weatherData.date} />
           </li>
-          <li>{weatherData.description}</li>
+          <li style={{ textTransform: "capitalize" }}>
+            {weatherData.description}
+          </li>
         </ul>
 
         <div className="row mt-3 align-items-center">
@@ -75,10 +79,7 @@ export default function Weather() {
           </div>
           <div className="col-4">
             <div className="d-flex justify-content-center">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="Sunny"
-              />
+              <WeatherIcon code={weatherData.icon} />
             </div>
           </div>
           <div className="col-4">
