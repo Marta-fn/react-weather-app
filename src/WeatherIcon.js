@@ -27,13 +27,17 @@ export default function WeatherIcon(props) {
       <WeatherSvg
         state={codeMapping[props.code]}
         night
-        width={200}
-        height={200}
+        width={props.size}
+        height={props.size}
       />
     );
   } else {
     return (
-      <WeatherSvg state={codeMapping[props.code]} width={200} height={200} />
+      <WeatherSvg
+        state={codeMapping[props.code]}
+        width={props.size}
+        height={props.size}
+      />
     );
   }
 }
