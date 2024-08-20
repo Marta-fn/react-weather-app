@@ -3,8 +3,36 @@ import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
+import SwitchSelector from "react-switch-selector";
 
 export default function Weather() {
+  const [unit, setUnit] = useState("celcius");
+  const options = [
+    {
+      label: "ºC",
+      value: "celcius",
+      selectedBackgroundColor: "#132676",
+    },
+    {
+      label: "ºF",
+      value: "fahrenheit",
+      selectedBackgroundColor: "#132676",
+    },
+  ];
+
+  const onChange = (newValue) => {
+    console.log(newValue);
+    if (unit === "celcius") {
+      setUnit("fahrenheit");
+    } else {
+      setUnit("celcius");
+    }
+  };
+
+  const initialSelectedIndex = options.findIndex(
+    ({ value }) => value === "celcius"
+  );
+
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState("Lisbon");
   function handleResponse(response) {
@@ -59,9 +87,21 @@ export default function Weather() {
               />
             </div>
           </div>
+
+          <div className="d-flex justify-content-end mt-3">
+            <div className="UnitSwitch" style={{ width: 90, height: 30 }}>
+              <SwitchSelector
+                onChange={onChange}
+                options={options}
+                initialSelectedIndex={initialSelectedIndex}
+                backgroundColor={"#ffffff"}
+                fontColor={"#000000"}
+              />
+            </div>
+          </div>
         </form>
-        <WeatherInfo data={weatherData} />
-        <WeatherForecast coord={weatherData.coordinates} />
+        <WeatherInfo data={weatherData} unit={unit} />
+        <WeatherForecast coord={weatherData.coordinates} unit={unit} />
       </div>
     );
   } else {

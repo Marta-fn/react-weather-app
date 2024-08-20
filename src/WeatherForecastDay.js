@@ -10,14 +10,30 @@ export default function WeatherForecastDay(props) {
 
     return days[day];
   }
-  return (
-    <div className="WeatherForecastDay">
-      <div>{day()}</div>
-      <WeatherIcon code={props.data.weather[0].icon} size={100} />
-      <div>
-        <span>{Math.round(props.data.temp.max)}º</span>
-        <span className="minTemp">{Math.round(props.data.temp.min)}º</span>
+
+  if (props.unit === "celcius") {
+    return (
+      <div className="WeatherForecastDay">
+        <div>{day()}</div>
+        <WeatherIcon code={props.data.weather[0].icon} size={100} />
+        <div>
+          <span>{Math.round(props.data.temp.max)}º</span>
+          <span className="minTemp">{Math.round(props.data.temp.min)}º</span>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="WeatherForecastDay">
+        <div>{day()}</div>
+        <WeatherIcon code={props.data.weather[0].icon} size={100} />
+        <div>
+          <span>{Math.round(props.data.temp.max * 1.8 + 32)}º</span>
+          <span className="minTemp">
+            {Math.round(props.data.temp.min * 1.8 + 32)}º
+          </span>
+        </div>
+      </div>
+    );
+  }
 }

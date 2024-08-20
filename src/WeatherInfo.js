@@ -16,7 +16,7 @@ export default function WeatherInfo(props) {
 
       <div className="row mt-3 align-items-center">
         <div className="col-4">
-          <WeatherTemp celcius={props.data.temperature} />
+          <WeatherTemp celcius={props.data.temperature} unit={props.unit} />
         </div>
         <div className="col-4">
           <div className="d-flex justify-content-center">
