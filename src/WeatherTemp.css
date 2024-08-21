@@ -10,11 +10,16 @@
   font-weight: bold;
 }
 
-.WeatherTemp a {
-  text-decoration: none;
-  color: white;
-  font-weight: normal;
-  background-color: #132676;
-  border-radius: 12px;
-  padding: 6px;
+@media (max-width: 425px) {
+  .WeatherTemp .temperature {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .WeatherTemp .unit {
+    padding-left: 5px;
+    font-size: 24px;
+    font-weight: bold;
+  }
 }

@@ -1,5 +1,5 @@
 .Weather {
-  padding: 16px;
+  width: 80%;
 }
 
 .Weather .btn-primary {
@@ -12,10 +12,6 @@
   line-height: 1.5;
   text-align: center;
   margin-top: 15px;
-}
-
-.Weather form {
-  margin: 30px 30px 0 30px;
 }
 
 .Weather ul {
@@ -31,4 +27,35 @@
 
 .Weather .day-info {
   text-align: center;
+}
+
+.Weather .icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 769px) {
+  .Weather form {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .Weather h1 {
+    font-size: 36px;
+  }
+
+  .Weather li {
+    font-size: 16px;
+  }
+
+  .Weather .form-control,
+  .btn {
+    font-size: 12px;
+  }
+
+  .Weather .icons {
+    margin-top: 0 !important;
+  }
 }

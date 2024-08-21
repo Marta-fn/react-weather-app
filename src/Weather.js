@@ -4,6 +4,7 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import SwitchSelector from "react-switch-selector";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather() {
   const [unit, setUnit] = useState("celcius");
@@ -70,7 +71,7 @@ export default function Weather() {
       <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-7">
               <input
                 type="search"
                 placeholder="Enter a city..."
@@ -79,7 +80,7 @@ export default function Weather() {
                 onChange={updateCity}
               />
             </div>
-            <div className="col-3">
+            <div className="col-5">
               <input
                 type="submit"
                 value="Search"
@@ -105,7 +106,38 @@ export default function Weather() {
       </div>
     );
   } else {
-    search();
-    return "Loading...";
+    return (
+      <div className="Weather">
+        <h1>How is the weather in</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-7">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                autoFocus="on"
+                className="form-control"
+                onChange={updateCity}
+              />
+            </div>
+            <div className="col-5">
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
+            </div>
+          </div>
+        </form>
+        <div className="icons mt-5">
+          <WeatherIcon code={"09d"} size={100} />
+          <WeatherIcon code={"04d"} size={100} />
+          <WeatherIcon code={"01d"} size={100} />
+          <WeatherIcon code={"50d"} size={100} />
+          <WeatherIcon code={"02d"} size={100} />
+          <WeatherIcon code={"13d"} size={100} />
+        </div>
+      </div>
+    );
   }
 }

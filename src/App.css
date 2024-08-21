@@ -12,6 +12,35 @@ body {
     rgba(33, 59, 163, 1) 100%
   );
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  border-radius: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 769px) {
+  .App .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 730px;
+    margin-top: -365px;
+    width: 1000px;
+    margin-left: -500px;
+
+    background: rgb(18, 37, 116);
+    background: linear-gradient(
+      127deg,
+      rgba(18, 37, 116, 1) 0%,
+      rgba(44, 47, 205, 1) 50%,
+      rgba(33, 59, 163, 1) 100%
+    );
+    background-repeat: no-repeat;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
