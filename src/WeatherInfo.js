@@ -14,7 +14,7 @@ export default function WeatherInfo(props) {
         <li className="text-capitalize">{props.data.description}</li>
       </ul>
 
-      <div className="row mt-3 align-items-center">
+      <div className="row mt-4 align-items-center">
         <div className="col-4">
           <WeatherTemp celcius={props.data.temperature} unit={props.unit} />
         </div>
