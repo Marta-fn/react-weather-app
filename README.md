@@ -5,14 +5,9 @@ This is a React-based application that provides current weather information base
 
 ## Table of Contents
 
-- [Project Description](#project-description)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Contact](#contact)
-
-## Project Description
-
-The Viseu Travel Guide website aims to showcase the charm and beauty of Viseu, a historic city in the heart of Portugal. This project focuses on creating a responsive and user-friendly web experience using HTML and CSS.
 
 ## Features
 
